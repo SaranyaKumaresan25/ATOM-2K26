@@ -1,98 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Atom 2K26</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Atom 2K26</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/home.css">
-    
- 
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/home.css">
 
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-<!-- ✨ MAGIC EFFECTS -->
 <div class="fog"></div>
 <div class="sparkle"></div>
 
 <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
 
-    <div class="nav-left">
-        <a href="https://www.psgtech.edu/" target="_blank">
-            <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
-        </a>
+  <div class="nav-left">
+    <a href="https://www.psgtech.edu/" target="_blank">
+      <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
+    </a>
 
-        <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
-            <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
-        </a>
-    </div>
+    <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
+      <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
+    </a>
+  </div>
 
-    <ul class="nav-menu">
-        <li><a class="active" href="#">Home</a></li>
-        <li><a href="events.html">Events</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contacts.html">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signin.html">Signin </a></li>
-    </ul>
+  <!-- ⭐ HAMBURGER -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul class="nav-menu" id="navMenu">
+    <li><a class="active" href="#">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="signin.html">Signin</a></li>
+  </ul>
 
 </nav>
 
 <!-- ================= HERO ================= -->
 <section class="hero">
+  <div class="book-box">
 
-    <!-- ⭐ BOOK BACKGROUND CONTAINER -->
-    <div class="book-box">
+    <h1 class="title">
+      <span class="atom-text">ATOM2K26</span>
+    </h1>
 
-        <h1 class="title">
-            <span class="atom-text">ATOM2K26</span> 
-        </h1>
+    <h2 class="date">March 4 • 5 • 6 • 7</h2>
 
-        <h2 class="date">March    4 • 5 • 6 • 7</h2>
-
-        <div class="countdown">
-            <div class="time-box"><span id="days">00</span><p>Days</p></div>
-            <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
-            <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
-            <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
-        </div>
-        <a href="events.html" class="gold-btn">Explore Events</a>
-
-       
-
+    <div class="countdown">
+      <div class="time-box"><span id="days">00</span><p>Days</p></div>
+      <div class="time-box"><span id="hours">00</span><p>Hours</p></div>
+      <div class="time-box"><span id="minutes">00</span><p>Minutes</p></div>
+      <div class="time-box"><span id="seconds">00</span><p>Seconds</p></div>
     </div>
 
+    <a href="events.html" class="gold-btn">Explore Events</a>
+
+  </div>
 </section>
 
-<!-- ================= COUNTDOWN ================= -->
+<!-- ================= JS ================= -->
+
 <script>
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("show");
+}
+
 const eventDate = new Date("March 4, 2026 00:00:00").getTime();
 
 setInterval(() => {
-    const now = new Date().getTime();
-    const gap = eventDate - now;
+  const now = new Date().getTime();
+  const gap = eventDate - now;
 
-    document.getElementById("days").innerText =
-        Math.max(0, Math.floor(gap / (1000*60*60*24)));
+  document.getElementById("days").innerText =
+    Math.max(0, Math.floor(gap / (1000*60*60*24)));
 
-    document.getElementById("hours").innerText =
-        Math.max(0, Math.floor((gap % (1000*60*60*24)) / (1000*60*60)));
+  document.getElementById("hours").innerText =
+    Math.max(0, Math.floor((gap % (1000*60*60*24)) / (1000*60*60)));
 
-    document.getElementById("minutes").innerText =
-        Math.max(0, Math.floor((gap % (1000*60*60)) / (1000*60)));
+  document.getElementById("minutes").innerText =
+    Math.max(0, Math.floor((gap % (1000*60*60)) / (1000*60)));
 
-    document.getElementById("seconds").innerText =
-        Math.max(0, Math.floor((gap % (1000*60)) / 1000));
+  document.getElementById("seconds").innerText =
+    Math.max(0, Math.floor((gap % (1000*60)) / 1000));
 }, 1000);
 </script>
 
