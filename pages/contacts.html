@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ATOM 2K26 | Contact Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/events.css">
+     
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+
+   
+  <style>
+    /* Contact Section - Harry Potter themed cards */
+    .events-hero {
+      padding-top: 120px; /* space for fixed navbar */
+      padding-bottom: 60px;
+      min-height: 80vh;
+    }
+
+    .contact-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 3rem;
+      color: #d4af37;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+      letter-spacing: 3px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+
+    .contact-card {
+      background: rgba(20, 20, 50, 0.75);
+      border: 2px solid #d4af37;
+      border-radius: 14px;
+      padding: 20px 20px;
+      text-align: center;
+      box-shadow: 
+        0 10px 30px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(212, 175, 55, 0.15);
+      backdrop-filter: blur(6px);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,215,0,0.12), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.6s;
+      pointer-events: none;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 
+        0 20px 50px rgba(212, 175, 55, 0.4),
+        0 0 40px rgba(212, 175, 55, 0.25);
+    }
+
+    .contact-card:hover::before {
+      opacity: 1;
+    }
+
+    .contact-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 1.8rem;
+      color: #fff3a0;
+      margin-bottom: 12px;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    }
+
+    .contact-roll {
+      font-size: 1.1rem;
+      color: #b8860b;
+      margin-bottom: 15px;
+    }
+
+    .contact-phone {
+      font-size: 1.3rem;
+      color: #ffdd88;
+      font-weight: 300;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-phone:hover {
+      color: #fff3a0;
+      text-shadow: 0 0 15px #ffd700;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .contact-title { font-size: 3.2rem; }
+      .contact-grid { gap: 20px; }
+      .contact-card { padding: 20px 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- effects -->
+<div class="fog"></div>
+<div class="sparkle"></div>
+
+<!-- ================= FIXED NAVBAR ================= -->
+<nav class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+  <div class="nav-left">
+    <a href="https://www.psgtech.edu/" target="_blank">
+      <img src="../assets/images/psg_logo.png" class="nav-logo">
+    </a>
+    <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
+      <img src="../assets/images/ieee_logo.png" class="nav-logo">
+    </a>
+  </div>
+
+  <ul class="nav-menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a class="active" href="#">Contact</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="signin.html">Signin </a></li>
+  </ul>
+</nav>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="events-hero">
+
+  <h1 class="contact-title">
+    <span class="atom-text">Contact</span> Us
+  </h1>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <div class="contact-name">#####</div>
+      <div class="contact-roll">####</div>
+      <a href="tel:+919080242324" class="contact-phone">+91 12345 67890</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-name">#####</div>
+      <div class="contact-roll">#####</div>
+      <a href="tel:+918838602832" class="contact-phone">+91 12345 67890</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-name">######</div>
+      <div class="contact-roll">#####</div>
+      <a href="tel:+917676690680" class="contact-phone">+91 12345 67890</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-name">######</div>
+      <div class="contact-roll">######</div>
+      <a href="tel:+919384055070" class="contact-phone">+91 12345 67890</a>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-name">######</div>
+      <div class="contact-roll">######</div>
+      <a href="tel:+918754021741" class="contact-phone">+91 12345 67890</a>
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>

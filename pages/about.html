@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atom 2K26 - About</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/base.css">
+    
+     
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+
+    <style>
+      /* ================= BODY ================= */
+body{
+  font-family:'Cinzel', serif;
+  color:white;
+  overflow-x:hidden;
+  background:
+    linear-gradient(rgba(10,10,30,0.78), rgba(10,10,30,0.92)),
+    url("../assets/images/bg_home.jpg") center/cover no-repeat;
+}
+
+      /* About Layout */
+      .about-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .about-section {
+        margin-bottom: 100px;
+      }
+
+      .about-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .about-image {
+        flex: 1 1 45%;
+        min-width: 320px;
+        text-align: center;
+      }
+
+      .about-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.4);
+        border: 2px solid #d4af37;
+      }
+
+      .about-text {
+        flex: 1 1 50%;
+        min-width: 320px;
+      }
+
+      .about-text h2 {
+        color: #d4af37;
+        font-size: 2.2rem;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .about-text p {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        text-align: justify;
+      }
+
+      /* Reverse order for ATOM section (text left, image right) */
+      .about-flex.reverse {
+        flex-direction: row-reverse;
+      }
+
+      /* Mobile stacking */
+      @media (max-width: 768px) {
+        .about-flex,
+        .about-flex.reverse {
+          flex-direction: column;
+          gap: 35px;
+        }
+        .about-image img {
+          max-width: 100%;
+        }
+        .about-text h2,
+        .about-text p {
+          text-align: center;
+        }
+      }
+
+      /* Override Cinzel all-caps behavior */
+      p, h2, .about-text {
+        font-family:  serif;
+      }
+    </style>
+</head>
+<body>
+
+<!-- ✨ MAGIC EFFECTS -->
+<div class="fog"></div>
+<div class="sparkle"></div>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="https://www.psgtech.edu/" target="_blank">
+            <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
+        </a>
+        <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
+            <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
+        </a>
+    </div>
+    <ul class="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a class="active" href="#">About</a></li>
+        <li><a href="contacts.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signin.html">Signin </a></li>
+    </ul>
+</nav>
+
+<!-- ================= ABOUT SECTION ================= -->
+<section class="hero" style="padding:140px 20px 60px;">
+
+    <div class="about-wrapper">
+
+        <h1 class="title" style="text-align:center; margin-bottom:60px;">
+            <span class="atom-text">About</span>
+            <span class="atom-text">Us</span>
+        </h1>
+
+        <!-- === IEEE Section (Image Left, Text Right) === -->
+        <div class="about-section">
+            <div class="about-flex">
+                <div class="about-image">
+                    <img src="../assets/images/psgtech.webp" alt="PSG College of Technology Historic Main Building">
+                </div>
+
+                <div class="about-text">
+                    <h2>IEEE Students Chapter 12951</h2>
+                    <p>IEEE SC 12951 at PSG College of Technology was initiated in 1977. It was started to involve the students in research and encourage new ideas in their respective fields. PSG has always been known for setting benchmarks in terms of quality of engineering and is one of the first and foremost institutions to have a Students branch of IEEE. The IEEE Students Chapter of PSG Tech has been actively involved in organizing top-notch technical fests every year, sparking the interest and involvement of students from various parts of the country. It is the largest technical association at PSG College of Technology.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- === ATOM Event Section (Text Left, Image Right) === -->
+        <div class="about-section">
+            <div class="about-flex reverse">
+                <div class="about-text">
+                    <h2>ATOM 2K26</h2>
+                    <p>ATOM 2K26 is the flagship technical symposium organized by the IEEE Students Chapter 12951 of PSG College of Technology. This edition promises to be a grand celebration of innovation, creativity, and cutting-edge technology.</p>
+                    <p>Scheduled to take place in March 2026, ATOM brings together students, innovators, and tech enthusiasts from across the country to compete in a wide range of exciting technical and non-technical events. From reverse engineering challenges and coding marathons to AI-powered problem-solving arenas and creative hardware contests — ATOM is designed to push boundaries and ignite passion for technology.</p>
+                    <p>With the theme "Unleash the Magic Within", ATOM 2K26 combines technical brilliance with a magical experience, creating an unforgettable journey for every participant.</p>
+                </div>
+
+                <div class="about-image">
+                    <img src="../assets/images/atom.png" alt="ATOM 2K26 Event Poster">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

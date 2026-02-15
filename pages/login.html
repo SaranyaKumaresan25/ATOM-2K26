@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATOM 2K26 | Login - Enter the Wizarding World</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/events.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      background:
+        linear-gradient(rgba(10,10,40,0.85), rgba(10,10,40,0.92)),
+        url("../assets/images/bg_home.jpg") center/cover no-repeat fixed;
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .login-hero{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:140px 20px 60px;
+    }
+
+    .login-container{
+      background:transparent;
+      backdrop-filter:blur(8px);
+      border:2px solid #d4af37;
+      border-radius:18px;
+      padding:50px 40px;
+      width:100%;
+      max-width:480px;
+      box-shadow:
+        0 15px 50px rgba(0,0,0,0.7),
+        inset 0 0 30px rgba(212,175,55,0.12);
+      text-align:center;
+      position:relative;
+    }
+
+    .login-title{
+      font-family:'Cinzel Decorative',serif;
+      font-size:2rem;
+      margin-bottom:40px;
+      background:linear-gradient(180deg,#fff3a0,#d4af37,#b8860b);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 15px rgba(212,175,55,0.5);
+    }
+
+    .form-group{
+      margin-bottom:28px;
+      text-align:left;
+    }
+
+    .form-group label{
+      display:block;
+      margin-bottom:8px;
+      color:#d4af37;
+      font-size:.95rem;
+      font-weight:600;
+    }
+
+    /* PASSWORD WRAP */
+    .password-wrap{
+      position:relative;
+      width:100%;
+    }
+
+    .form-group input{
+      width:100%;
+      padding:14px 18px;
+      border:1px solid #b8860b;
+      border-radius:10px;
+      background:rgba(30,30,60,0.6);
+      color:white;
+      font-size:.95rem;
+      transition:.3s;
+      cursor:url("../assets/images/wcursor.png") 16 16, auto;
+    }
+
+    .password-wrap input{
+      padding-right:45px;
+    }
+
+    .form-group input:focus{
+      outline:none;
+      border-color:#fff3a0;
+      box-shadow:0 0 15px rgba(255,243,160,0.4);
+    }
+
+    /* EYE */
+    .toggle-eye{
+      position:absolute;
+      right:14px;
+      top:50%;
+      transform:translateY(-50%);
+      cursor:pointer;
+      font-size:18px;
+      color:#ffe27a;
+      opacity:.85;
+      user-select:none;
+    }
+
+    .toggle-eye:hover{
+      opacity:1;
+      transform:translateY(-50%) scale(1.1);
+    }
+
+    .options{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin:20px 0 35px;
+      font-size:.80rem;
+      color:#ccc;
+    }
+
+    .options a{
+      color:#d4af37;
+      text-decoration:none;
+      cursor:url("../assets/images/wcursor.png") 16 16, pointer;
+    }
+
+    .options a:hover{
+      color:#fff3a0;
+      text-shadow:0 0 10px #ffd700;
+    }
+
+    .btn-login{
+      width:100%;
+      padding:16px;
+      background:linear-gradient(145deg,#2a0000,#7a0000,#b30000);
+      border:2px solid #d4af37;
+      border-radius:12px;
+      color:#fff3a0;
+      font-size:.99rem;
+      font-weight:600;
+      cursor:url("../assets/images/wcursor.png") 16 16, pointer;
+      transition:.4s;
+      box-shadow:0 0 20px rgba(212,175,55,0.3);
+    }
+
+    .btn-login:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(212,175,55,0.5);
+      background:linear-gradient(145deg,#b30000,#7a0000,#2a0000);
+    }
+
+    .signup-link{
+      margin-top:30px;
+      color:#ccc;
+      font-size:.89rem;
+    }
+
+    .signup-link a{
+      color:#d4af37;
+      font-weight:600;
+      text-decoration:none;
+      cursor:url("../assets/images/wcursor.png") 16 16, pointer;
+    }
+
+    .signup-link a:hover{
+      color:#fff3a0;
+      text-decoration:underline;
+    }
+
+    @media(max-width:480px){
+      .login-container{padding:40px 25px;}
+      .login-title{font-size:1.5rem;}
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="fog"></div>
+<div class="sparkle"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+  <div class="nav-left">
+    <a href="https://www.psgtech.edu/" target="_blank">
+      <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
+    </a>
+    <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
+      <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
+    </a>
+  </div>
+
+  <ul class="nav-menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+    <li><a class="active" href="#"> Login</a></li>
+    <li><a href="signin.html">Signin </a></li>
+  </ul>
+</nav>
+
+<!-- LOGIN -->
+<section class="login-hero">
+
+  <div class="login-container">
+    <h1 class="login-title">Enter the Realm</h1>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" onsubmit="return false;" novalidate>
+
+      <div class="form-group">
+        <label>Wizard Name / Owl Post Email</label>
+        <input type="text" id="username" placeholder="e.g. harry.potter@hogwarts.edu" required>
+      </div>
+
+      <div class="form-group">
+        <label>Secret Spell (Password)</label>
+
+        <div class="password-wrap">
+          <input type="password" id="password" placeholder="••••••••" required>
+          <span class="toggle-eye" onclick="togglePassword()">👁</span>
+        </div>
+      </div>
+
+      <div class="options">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="javascript:void(0)" onclick="openForgot()">Forgot your spell?</a>
+      </div>
+
+      <button class="btn-login">Unlock Magic</button>
+    </form>
+
+    <!-- FORGOT PASSWORD -->
+    <div id="forgotForm" style="display:none;">
+
+      <div class="form-group">
+        <label>Enter Registered Email</label>
+        <input type="email" id="forgotEmail" placeholder="your@email.com">
+      </div>
+
+      <button class="btn-login" onclick="sendReset()">Send Reset Link</button>
+
+      <p class="signup-link" style="margin-top:18px;">
+        <a href="javascript:void(0)" onclick="backToLogin()">← Back to Login</a>
+      </p>
+
+    </div>
+
+    <div class="signup-link">
+      New to the wizarding world? <a href="signin.html">Signin here</a>
+    </div>
+  </div>
+
+</section>
+
+<script>
+function togglePassword(){
+  const pass = document.getElementById("password");
+  const eye = document.querySelector(".toggle-eye");
+
+  if(pass.type === "password"){
+    pass.type = "text";
+    eye.textContent = "🙈";
+  }else{
+    pass.type = "password";
+    eye.textContent = "👁";
+  }
+}
+
+/* FORGOT FLOW */
+
+function openForgot(){
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("forgotForm").style.display = "block";
+}
+
+function backToLogin(){
+  document.getElementById("forgotForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "block";
+}
+
+function sendReset(){
+  const email = document.getElementById("forgotEmail").value;
+
+  if(!email){
+    alert("Please enter registered email");
+    return;
+  }
+
+  alert("Reset link sent to " + email + " (demo)");
+  backToLogin();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title id="pageTitle">Event Details | ATOM 2K26</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/event-details.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="fog"></div>
+<div class="sparkle"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar" style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+  <div class="nav-left">
+    <a href="https://www.psgtech.edu/" target="_blank">
+      <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
+    </a>
+    <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
+      <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
+    </a>
+  </div>
+
+  <ul class="nav-menu">
+    <li><a href="home.html">Home</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contacts.html">Contact</a></li>
+    <li><a href="login.html"> Login</a></li>
+    <li><a href="signin.html">Signin </a></li>
+  </ul>
+</nav>
+
+<section class="details-hero">
+
+<h1 class="event-main-title" id="eventTitle">EVENT NAME</h1>
+
+<div class="accordion">
+
+  <!-- DESCRIPTION -->
+  <div class="info-card">
+    <div class="card-header">
+      <h3>Description</h3>
+      <button class="toggle-btn">+</button>
+    </div>
+    <div class="card-body">
+      <p id="eventDesc"></p>
+    </div>
+  </div>
+
+  <!-- GENERAL RULES -->
+  <div class="info-card">
+    <div class="card-header">
+      <h3>General Rules</h3>
+      <button class="toggle-btn">+</button>
+    </div>
+    <div class="card-body">
+      <ol id="generalRules"></ol>
+    </div>
+  </div>
+
+  <!-- EVENT RULES -->
+  <div class="info-card">
+    <div class="card-header">
+      <h3>Event Rules</h3>
+      <button class="toggle-btn">+</button>
+    </div>
+    <div class="card-body">
+      <ol id="eventRules"></ol>
+    </div>
+  </div>
+
+</div>
+
+<div class="mini-grid">
+  <div class="mini-card">
+    <h4>Team Size</h4>
+    <p id="teamSize"></p>
+  </div>
+
+  <div class="mini-card">
+    <h4>Date & Time</h4>
+    <p id="eventDate"></p>
+  </div>
+
+  <div class="mini-card">
+    <h4>Contact</h4>
+    <p id="contact1"></p>
+    <p id="contact2"></p>
+  </div>
+</div>
+
+<button class="register-btn" onclick="showLogin()">Register Now</button>
+
+</section>
+
+<!-- LOGIN POPUP -->
+<div class="login-popup" id="loginPopup">
+  <div class="popup-box">
+    <h3>Login Required</h3>
+    <p>Please login before registering for the event.</p>
+    <button onclick="goToLogin()">Login</button>
+
+  </div>
+</div>
+
+<script>
+
+/* ================= EVENT DATABASE ================= */
+
+const EVENTS = {
+
+  trace: {
+    title: "TRACE N’ TANGLE",
+    desc: "Trace N’ Tangle is a thrilling reverse engineering event that tests creativity, logic, and analytical thinking.",
+    general: [
+      "Individual registration is mandatory.",
+      "All team members must register.",
+      "Follow proper dress code.",
+      "ID verification before event.",
+      "Late entry is not allowed."
+    ],
+    rules: [
+      "Each team consists of 2 members.",
+      "Carry valid ID cards.",
+      "Stay within campus.",
+      "Plagiarism leads to disqualification."
+    ],
+    team: "2 Members",
+    date: "March 4, 2026 — 9:30 AM",
+    contact1: "xxxxx",
+    contact2: "xxxxx"
+  },
+
+  lockdown: {
+    title: "LOCKDOWN LABS",
+    desc: "Braincode escape challenge event.",
+    general: ["Details will be updated"],
+    rules: ["Details will be updated"],
+    team: "—",
+    date: "—",
+    contact1: "—",
+    contact2: ""
+  },
+
+  techie: {
+    title: "TECHIE SUITE",
+    desc: "AI & logic fusion arena.",
+    general: ["Details will be updated"],
+    rules: ["Details will be updated"],
+    team: "—",
+    date: "—",
+    contact1: "—",
+    contact2: ""
+  }
+
+};
+
+/* ================= LOAD EVENT ================= */
+
+const params = new URLSearchParams(window.location.search);
+const eventKey = params.get("event") || "trace";
+const data = EVENTS[eventKey];
+
+document.getElementById("eventTitle").textContent = data.title;
+document.getElementById("pageTitle").textContent = data.title + " | ATOM 2K26";
+document.getElementById("eventDesc").textContent = data.desc;
+document.getElementById("teamSize").textContent = data.team;
+document.getElementById("eventDate").textContent = data.date;
+document.getElementById("contact1").textContent = data.contact1;
+document.getElementById("contact2").textContent = data.contact2;
+
+/* fill lists */
+function fillList(id, arr){
+  const el = document.getElementById(id);
+  el.innerHTML = "";
+  arr.forEach(item=>{
+    const li = document.createElement("li");
+    li.textContent = item;
+    el.appendChild(li);
+  });
+}
+
+fillList("generalRules", data.general);
+fillList("eventRules", data.rules);
+
+/* ================= ACCORDION ================= */
+
+const cards = document.querySelectorAll(".info-card");
+
+cards.forEach(card=>{
+  const btn = card.querySelector(".toggle-btn");
+
+  btn.addEventListener("click", ()=>{
+    const isOpen = card.classList.contains("open");
+
+    cards.forEach(c=>{
+      c.classList.remove("open");
+      c.querySelector(".toggle-btn").textContent = "+";
+    });
+
+    if(!isOpen){
+      card.classList.add("open");
+      btn.textContent = "×";
+    }
+  });
+});
+
+/* popup */
+function showLogin(){
+  document.getElementById("loginPopup").style.display="flex";
+}
+function goToLogin(){
+  const currentEvent = eventKey;
+  window.location.href = "login.html?redirect=event-details.html?event=" + currentEvent;
+}
+
+</script>
+
+</body>
+</html>

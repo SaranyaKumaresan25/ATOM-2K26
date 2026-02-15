@@ -1,0 +1,308 @@
+/* ================= RESET ================= */
+*{margin:0;padding:0;box-sizing:border-box}
+
+ 
+/* ================= BODY ================= */
+body{
+  font-family:'Cinzel',serif;
+  color:white;
+  background:
+    linear-gradient(rgba(10,10,30,.82),rgba(10,10,30,.92)),
+    url("../assets/images/bg_home.jpg") center/cover no-repeat fixed;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:999;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 40px;
+  background:rgba(10,10,30,.65);
+  backdrop-filter:blur(10px);
+}
+
+.nav-logo{height:40px;margin-right:10px}
+
+.nav-menu{list-style:none;display:flex;gap:30px}
+.nav-menu a{color:#f4d97a;text-decoration:none}
+
+/* ================= HERO ================= */
+.details-hero{
+  padding:140px 20px 80px;
+  max-width:900px;
+  margin:auto;
+}
+
+/* ================= TITLE ================= */
+.event-main-title{
+  text-align:center;
+  font-size:44px;
+  margin-bottom:30px;
+  font-family:'Cinzel Decorative',serif;
+  background:linear-gradient(180deg,#fff3a0,#d4af37,#8b6b1f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ================= GLASS CARD ================= */
+.info-card{
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(212,175,55,0.28);
+  border-radius: 18px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease,
+    transform .25s ease;
+}
+
+.info-card:hover{
+  border-color:#d4af37;
+  box-shadow:0 0 22px rgba(212,175,55,0.18);
+  transform:translateY(-2px);
+}
+
+/* ================= HEADER ================= */
+.card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.card-header h3{
+  color:#ffe27a;
+}
+
+/* ================= TOGGLE BUTTON ================= */
+.toggle-btn{
+  background:transparent;
+  border:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#ff4d6d;
+  padding:4px 10px;
+  transition:transform .25s ease, color .25s ease;
+}
+
+.info-card.open .toggle-btn{
+  transform:rotate(90deg);
+  color:#ff6b85;
+}
+
+/* ================= ⭐ SMOOTH BODY (MAJOR FIX) ================= */
+.card-body{
+  max-height:0;
+  overflow:hidden;
+
+  opacity:0;
+  transform:translateY(-8px);
+
+  transition:
+    max-height .55s cubic-bezier(.4,0,.2,1),
+    opacity .35s ease,
+    transform .35s ease;
+
+  will-change:max-height, opacity, transform;
+}
+
+/* OPEN STATE */
+.info-card.open .card-body{
+  max-height:1000px;          /* ⭐ big to avoid cut */
+  opacity:1;
+  transform:translateY(0);
+  margin-top:14px;
+}
+
+/* text */
+.card-body p,
+.card-body li{
+  color:#cfd8ff;
+  line-height:1.7;
+}
+
+.card-body ol{padding-left:18px}
+
+/* ================= MINI GRID ================= */
+.mini-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:10px;
+}
+
+.mini-card{
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  border: 1px solid rgba(212,175,55,.28);
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.mini-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 28px rgba(212,175,55,.15);
+}
+
+.mini-card h4{
+  color:#ffe27a;
+  margin-bottom:6px;
+}
+
+/* ================= REGISTER ================= */
+.register-btn{
+  display:block;
+  margin:50px auto 0;
+  padding:14px 50px;
+  font-size:18px;
+  color:#ffe27a;
+  border-radius:14px;
+  border:2px solid gold;
+  background:linear-gradient(145deg,#2a0000,#b30000,#2a0000);
+  box-shadow:0 0 18px rgba(212,175,55,.6);
+  transition:all .25s ease;
+}
+
+.register-btn:hover{
+  transform:translateY(-2px) scale(1.04);
+  box-shadow:0 0 28px rgba(212,175,55,.9);
+}
+
+/* ================= POPUP ================= */
+/* ================= LOGIN POPUP (MAGICAL) ================= */
+
+.login-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(5,5,20,.65);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+
+  animation:popupFade .35s ease;
+}
+
+/* popup card */
+.popup-box{
+  width:min(90%, 380px);
+  padding:32px 28px;
+  border-radius:20px;
+  text-align:center;
+  position:relative;
+
+  /* ✨ glass look */
+  background:rgba(15,15,40,.55);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  border:1px solid rgba(212,175,55,.45);
+
+  box-shadow:
+    0 0 35px rgba(212,175,55,.25),
+    inset 0 0 18px rgba(212,175,55,.08);
+
+  animation:popupScale .35s cubic-bezier(.2,.8,.2,1);
+}
+
+/* title */
+.popup-box h3{
+  font-family:'Cinzel Decorative',serif;
+  font-size:22px;
+  margin-bottom:10px;
+
+  background:linear-gradient(180deg,#fff3a0,#d4af37,#8b6b1f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* text */
+.popup-box p{
+  color:#cfd8ff;
+  font-size:15px;
+  margin-bottom:22px;
+  line-height:1.6;
+}
+
+/* button */
+.popup-box button{
+  padding:10px 28px;
+  border-radius:12px;
+  border:2px solid rgba(212,175,55,.8);
+  cursor:pointer;
+  font-weight:600;
+  color:#ffe27a;
+
+  background:linear-gradient(
+    145deg,
+    #2a0000,
+    #7a0000,
+    #b30000,
+    #7a0000,
+    #2a0000
+  );
+
+  box-shadow:
+    inset 0 0 10px rgba(0,0,0,.6),
+    0 0 14px rgba(212,175,55,.5);
+
+  transition:all .25s ease;
+}
+
+.popup-box button:hover{
+  transform:translateY(-2px) scale(1.05);
+  box-shadow:
+    inset 0 0 14px rgba(0,0,0,.8),
+    0 0 26px rgba(212,175,55,.9);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes popupFade{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes popupScale{
+  from{
+    transform:scale(.85);
+    opacity:0;
+  }
+  to{
+    transform:scale(1);
+    opacity:1;
+  }
+}
+
+
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+  .event-main-title{font-size:30px}
+
+  .navbar{padding:12px 20px}
+
+  .details-hero{
+    padding:120px 16px 60px;
+  }
+
+  .toggle-btn{font-size:24px}
+}
