@@ -20,17 +20,23 @@
 <div class="sparkle"></div>
 
 <!-- ================= NAVBAR ================= -->
+ <!-- ================= NAVBAR ================= -->
 <nav class="navbar">
+
   <div class="nav-left">
     <a href="https://www.psgtech.edu/" target="_blank">
-      <img src="../assets/images/psg_logo.png" class="nav-logo">
+      <img src="../assets/images/psg_logo.png" class="nav-logo" alt="PSG">
     </a>
+
     <a href="https://www.psgtech.edu/dept/ece/ieee/" target="_blank">
-      <img src="../assets/images/ieee_logo.png" class="nav-logo">
+      <img src="../assets/images/ieee_logo.png" class="nav-logo" alt="IEEE">
     </a>
   </div>
 
-  <ul class="nav-menu">
+  <!-- ⭐ HAMBURGER -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <ul class="nav-menu" id="navMenu">
     <li><a href="home.html">Home</a></li>
     <li><a class="active" href="#">Events</a></li>
     <li><a href="about.html">About</a></li>
@@ -38,7 +44,9 @@
     <li><a href="login.html">Login</a></li>
     <li><a href="signin.html">Signin</a></li>
   </ul>
+
 </nav>
+ 
 
 <!-- ================= HERO ================= -->
 <section class="events-hero">
