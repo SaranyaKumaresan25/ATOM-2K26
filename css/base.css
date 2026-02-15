@@ -198,21 +198,7 @@ body{
   to{ transform:translateX(40px); }
 }
 
-/* ================= MOBILE NAV ================= */
-@media (max-width:768px){
-
-  .navbar{
-    flex-direction:column;
-    gap:15px;
-    padding:20px;
-  }
-
-  .nav-menu{
-    flex-direction:column;
-    gap:15px;
-  }
-}
-
+ 
 /* ================= TEXT OVERRIDES ================= */
 .atom-text {
   font-family: 'Cinzel Decorative', serif;
@@ -255,4 +241,61 @@ label,
 span,
 div {
   cursor: url("../assets/images/cursor.png") 16 16, auto !important;
+}
+
+
+
+
+
+
+/* ================= HAMBURGER ================= */
+
+.menu-toggle{
+  display:none;
+  font-size:28px;
+  color:#ffe27a;
+  cursor:pointer;
+}
+
+/* ================= MOBILE NAV ================= */
+
+@media (max-width:768px){
+
+  .navbar{
+    padding:14px 20px;
+  }
+
+  /* show hamburger */
+  .menu-toggle{
+    display:block;
+  }
+
+  /* hide menu by default */
+  .nav-menu{
+    position:absolute;
+    top:70px;
+    right:0;
+    width:220px;
+
+    flex-direction:column;
+    gap:18px;
+    padding:20px;
+
+    background:rgba(10,10,30,0.95);
+    backdrop-filter:blur(10px);
+
+    border-left:1px solid rgba(212,175,55,.4);
+    border-bottom:1px solid rgba(212,175,55,.4);
+
+    display:none;
+  }
+
+  /* when open */
+  .nav-menu.show{
+    display:flex;
+  }
+
+  .nav-menu a{
+    font-size:16px;
+  }
 }
