@@ -158,17 +158,26 @@
     }
 
     @media (max-width: 992px) {
-      .auth-container {
-        flex-direction: column;
-      }
-      .left-side {
-        padding: 60px 30px;
-      }
-      .right-side {
-        border-left: none;
-        border-top: 1px solid rgba(212,175,55,0.2);
-      }
-    }
+
+  .auth-container {
+    flex-direction: column;
+    align-items: center;          /* ⭐ ADD THIS */
+    text-align: center;           /* ⭐ ADD THIS */
+  }
+
+  .left-side {
+    width: 100%;                  /* ⭐ ADD */
+    align-items: center;          /* ⭐ ADD */
+    text-align: center;           /* ⭐ ADD */
+  }
+
+  .left-title {
+    font-size: 2.6rem;            /* ⭐ smaller for mobile */
+    text-align: center;           /* ⭐ ADD */
+  }
+
+}
+
   </style>
 </head>
 <body>
